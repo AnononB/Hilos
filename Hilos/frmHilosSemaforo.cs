@@ -43,8 +43,7 @@ namespace Hilos
                     Thread.Sleep(2);
                     r++;
                     //
-                    g = (byte)(255 - r);
-                    b = (byte)((r + g) / 2);
+                   
                     //
 
                     if (r == 255)
@@ -55,8 +54,7 @@ namespace Hilos
                 {
                     Thread.Sleep(2);
                     r--;
-                    g = (byte)(255 - r);
-                    b = (byte)((r + g) / 2);
+                   
                     if (r == 0)
                         b1 = false;
                     pictureBox1.BackColor = Color.FromArgb(r, g, b);
@@ -74,8 +72,7 @@ namespace Hilos
                 {
                     Thread.Sleep(2);
                     r++;
-                    g = (byte)(255 - r);
-                    b = (byte)((r + g) / 2);
+                    
                     if (r == 255)
                         b1 = true;
                     pictureBox2.BackColor = Color.FromArgb(r, g, b);
@@ -84,8 +81,7 @@ namespace Hilos
                 {
                     Thread.Sleep(2);
                     r--;
-                    g = (byte)(255 - r);
-                    b = (byte)((r + g) / 2);
+                   
                     if (r == 0)
                         b1 = false;
                     pictureBox2.BackColor = Color.FromArgb(r, g, b);
@@ -103,8 +99,8 @@ namespace Hilos
                 {
                     Thread.Sleep(2);
                     r++;
-                    g = (byte)(255 - r);
-                    b = (byte)((r + g) / 2);
+                   /* g = (byte)(255 - r);
+                    b = (byte)((r + g) / 2);*/
                     if (r == 255)
                         b1 = true;
                     pictureBox3.BackColor = Color.FromArgb(r, g, b);
@@ -113,8 +109,8 @@ namespace Hilos
                 {
                     Thread.Sleep(2);
                     r--;
-                    g = (byte)(255 - r);
-                    b = (byte)((r + g) / 2);
+                   /* g = (byte)(255 - r);
+                    b = (byte)((r + g) / 2);*/
                     if (r == 0)
                         b1 = false;
                     pictureBox3.BackColor = Color.FromArgb(r, g, b);

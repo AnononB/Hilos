@@ -73,7 +73,7 @@ namespace Hilos
             Controls.Add(pictureBox1);
             Name = "frmHiloOr";
             Text = "Form2";
-            Load += this.frmHiloOr_Load;
+            Load += frmHiloOr_Load_1;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

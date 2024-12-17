@@ -15,6 +15,7 @@ namespace Hilos
         Thread proceso1, proceso2;
         byte r, g;
         bool b1, b2;
+        Semaphore s1, s2;
         public frmHiloOr()
         {
             InitializeComponent();
@@ -23,10 +24,13 @@ namespace Hilos
         private void Form1_Load(object sender, EventArgs e)
         {
             r = 0; g = 255; b1 = false; b2 = true;
+            s1 = new Semaphore(1, 1); // Inicialmente permitido para hilo1
+            s2 = new Semaphore(0, 1);
         }
 
         private void hilo1()
         {
+            s1.WaitOne();
             while (true)
             {
 
@@ -51,11 +55,13 @@ namespace Hilos
                 pictureBox1.BackColor = Color.FromArgb(r, 100, 80);
 
             }
+            s2.Release();
 
         }
 
         private void hilo2()
         {
+            s2.WaitOne();
             while (true)
             {
 
@@ -80,6 +86,7 @@ namespace Hilos
                 pictureBox2.BackColor = Color.FromArgb(r, 80, 100);
 
             }
+            s1.Release();
 
         }
 
@@ -89,6 +96,11 @@ namespace Hilos
             proceso2 = new Thread(new ThreadStart(hilo2));
             proceso1.Start();
             proceso2.Start();
+        }
+
+        private void frmHiloOr_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

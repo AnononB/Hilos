@@ -1,25 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace Hilos
 {
-    public partial class frmHilo : Form
+    public partial class Form1 : Form
     {
-        Thread proceso1, proceso2;
-        byte r, g;
-        bool b1, b2;
-        public frmHilo()
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void hilosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            frmHiloOr frm2 = new frmHiloOr();
-            frm2.Show();
+
         }
 
-        private void hilosSemaforoToolStripMenuItem_Click(object sender, EventArgs e)
+        public void Hilo1()
         {
-            frmHilosSemaforo frmHS = new frmHilosSemaforo();
-            frmHS.Show();
+            for (int i = 0; i <= 10; i++)
+            {
+                if (label1.InvokeRequired)
+                {
+                    label1.Invoke(new MethodInvoker(delegate
+                    {
+
+                        label1.Text = i.ToString();
+                    }));
+                }
+
+                Thread.Sleep(500);
+
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // Hilo1= new Thread(new Thread(Hilo1));
+
         }
     }
 }
